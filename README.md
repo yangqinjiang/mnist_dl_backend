@@ -1,6 +1,11 @@
 # mnist_dl_backend
 mnist deeplearning backend
+```运行环境
+python 3.7
+flask
+numpy
 
+```
 
 ```
 API:  /v1/guess
