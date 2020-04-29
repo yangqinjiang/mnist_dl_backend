@@ -1,0 +1,16 @@
+node {
+    checkout([
+        $class: 'GitSCM',
+        branches: [[name: env.GIT_BUILD_REF]],
+        userRemoteConfigs: [[url: env.GIT_REPO_URL, credentialsId: env.CREDENTIALS_ID]]
+    ])
+ 
+    // 构建 Docker 镜像
+    imageName = "yangqinjiang-docker.pkg.coding.net/mnist_dl_backend/docker/master:latest"
+    docker.build(imageName)
+ 
+    // 推送 Docker 镜像到仓库
+    docker.withRegistry("https://yangqinjiang-docker.pkg.coding.net", CODING_ARTIFACTS_CREDENTIALS_ID) {
+        docker.image(imageName).push()
+    }
+}
