@@ -1,8 +1,12 @@
+# 自定义的基础镜像
+
+
+# 这是别人的镜像
 FROM frolvlad/alpine-python3
 
 LABEL maintainer="yangqinjiang"
 
-# numpy, flask
+# 安装 numpy, flask
 RUN pip install --no-cache-dir --upgrade pip
 RUN apk add --no-cache \
         --virtual=.build-dependencies \

@@ -5,10 +5,15 @@ import json
 
 app = Flask(__name__)
 
-
 @app.route('/')
 def index():
-    return '<h1>Hello World!</h1><p>%s</p>' % (np.version())
+    return "<h1>mnist deeplearning backend</h1>"
+
+@app.route('/__version__')
+def version():
+    import sys
+    import flask
+    return '<h1>Env</h1><p>numpy: %s</p><p>python: %s</p><p>flask: %s</p>' % (np.__version__, sys.version,flask.__version__)
 
 
 @app.route('/v1/guess', methods=['POST'])
