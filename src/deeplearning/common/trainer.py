@@ -3,7 +3,7 @@ import sys,os
 sys.path.append(os.pardir)
 
 import numpy as np
-from common.optimizer import *
+from ..common.optimizer import *
 
 class Trainer:
     """进行神经网络的训练的类

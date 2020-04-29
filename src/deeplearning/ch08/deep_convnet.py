@@ -1,10 +1,8 @@
 # coding: utf-8
-import sys,os
-sys.path.append(os.pardir)
 import pickle
 import numpy as np
 from collections import OrderedDict
-from common.layers import *
+from ..common.layers import *
 
 class DeepConvNet:
     """识别率为99%以上的高精度的ConvNet, 共21层
