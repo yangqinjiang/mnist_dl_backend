@@ -8,7 +8,7 @@ app = Flask(__name__)
 
 @app.route('/')
 def index():
-    return '<h1>Hello World!</h1>'
+    return '<h1>Hello World!</h1><p>%s</p>' % (np.version())
 
 
 @app.route('/v1/guess', methods=['POST'])
@@ -32,4 +32,4 @@ def guess():
 # 启动服务器
 if __name__ == '__main__':
     print("running...")
-    app.run(debug=~True)
+    app.run(debug=~True,host="0.0.0.0",port="5000")

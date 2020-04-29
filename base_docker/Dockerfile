@@ -1,6 +1,8 @@
 FROM frolvlad/alpine-python3
 
 LABEL maintainer="yangqinjiang"
+
+# numpy, flask
 RUN pip install --no-cache-dir --upgrade pip
 RUN apk add --no-cache \
         --virtual=.build-dependencies \
@@ -19,10 +21,3 @@ RUN apk add --no-cache \
     rm /usr/include/xlocale.h && \
     \
     apk del .build-dependencies
-
-
-WORKDIR /src
-COPY src .
-
-ENTRYPOINT ["python"]
-CMD ["main.py"]

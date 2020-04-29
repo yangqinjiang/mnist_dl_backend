@@ -1,5 +1,10 @@
 # mnist_dl_backend
 mnist deeplearning backend
+
+```docker
+docker build -t hello .
+docker run  -p 5000:5000 --rm hello:latest 
+```
 ```运行环境
 python 3.7
 flask
