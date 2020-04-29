@@ -2,12 +2,13 @@
 import sys,os
 sys.path.append(os.pardir)
 import numpy as np
-from ch08.deep_convnet import DeepConvNet
+
+from .deep_convnet import DeepConvNet
 from dataset.mnist import load_mnist
 
 
 class DL:
-    def __init__:
+    def __init__():
         pass
     
     def predict():

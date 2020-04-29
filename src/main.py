@@ -24,7 +24,7 @@ def guess():
     # 随机生成数据
     c = [{"index": index, "value": np.random.sample()}
          for index in range(0, 10)]
-    from deeplearning.dl import DL
+    from deeplearning.ch08.dl import DL
     dl = DL()
     dl.predict()
     result = {
