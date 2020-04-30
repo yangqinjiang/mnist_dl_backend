@@ -4,7 +4,6 @@ import json
 from deeplearning.ch08.dl import DL
 import os
 
-
 app = Flask(__name__)
 
 @app.route('/')
@@ -23,8 +22,13 @@ def guess():
     data = request.get_data()
     data_json = json.loads(data)
     filepath = os.path.split(os.path.realpath(__file__))[0]+'/deeplearning/ch08/deep_convnet_params.pkl'
+    
+    input = data_json['input']
+    input_np = np.array(input)
+    input_np = input_np.reshape((1,1,28,28)) # 转换类型
+    
     dl = DL(filepath=filepath)
-    y,softmax_result = dl.predict()
+    y,softmax_result = dl.predict(input_np)
     # 组装数据
     c = [{"index": index, "value": format(value, '.5f')}
          for index,value in enumerate(softmax_result[0])]
