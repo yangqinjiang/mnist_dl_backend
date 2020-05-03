@@ -6,5 +6,9 @@ LABEL maintainer="yangqinjiang"
 WORKDIR /src
 COPY src .
 
-ENTRYPOINT ["python"]
-CMD ["main.py"]
+EXPOSE 8000
+CMD ["/usr/bin/gunicorn","-c","gun.py", "main:app"]
+
+
+# ENTRYPOINT ["python"]
+# CMD ["main.py"]

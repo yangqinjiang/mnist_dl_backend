@@ -13,8 +13,8 @@ def index():
 @app.route('/__version__')
 def version():
     import sys
-    import flask
-    return '<h1>Env</h1><p>numpy: %s</p><p>python: %s</p><p>flask: %s</p>' % (np.__version__, sys.version,flask.__version__)
+    import flask,gunicorn,gevent
+    return '<h1>Env</h1><p>numpy: %s</p><p>python: %s</p><p>flask: %s</p><p>gunicorn: %s</p><p>gevent: %s</p>' % (np.__version__, sys.version,flask.__version__,gunicorn.__version__,gevent.__version__)
 
 
 @app.route('/v1/guess', methods=['POST'])

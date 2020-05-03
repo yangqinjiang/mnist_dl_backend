@@ -1,0 +1,10 @@
+version: '3.7'
+services:
+  mnist-app:
+    image: yangqinjiang/mnist-dl-backend:latest
+    ports: # 暴露端口信息  - "宿主机端口:容器暴露端口"
+      - "8000:8000"
+    networks:
+      - my-network
+networks:
+  my-network:
